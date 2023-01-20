@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/1.GameScenes/WorldScene/LoginScene.unity
+    guid: 7c6fce5a7860f584f9aa4df0eef43de5
+  - enabled: 1
+    path: Assets/1.GameScenes/WorldScene/WorldScene.unity
+    guid: 3b8be86a74e3ef6419848e9a39f15c94
+  - enabled: 1
+    path: Assets/1.GameScenes/WorldScene/HeroesManager.unity
+    guid: 5b3216529f1c0fd45aefdf4441b503f3
+  - enabled: 1
+    path: Assets/1.GameScenes/TreasureHuntMode/TreasureHunt.unity
+    guid: a5c8a8a8a73854642ba082666e60f33b
   m_configObjects: {}
