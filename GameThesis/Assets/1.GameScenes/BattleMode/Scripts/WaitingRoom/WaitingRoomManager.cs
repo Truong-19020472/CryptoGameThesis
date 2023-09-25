@@ -24,13 +24,14 @@ public class WaitingRoomManager : MonoBehaviourPunCallbacks, IPunObservable
             instance = this;
         else
             Destroy(gameObject);
-        Debug.LogError("meme");
-
-        
     }
     void Start()
     {
+
+
         roomId.text = PhotonNetwork.CurrentRoom.Name;
+        ResetStateAfterMatch();
+
         leaveRoom.onClick.AddListener(LeaveThisRoom);
         readyButton.onClick.AddListener(OnClickReadyButton);
         //if (PhotonNetwork.IsMasterClient == false)
@@ -48,11 +49,22 @@ public class WaitingRoomManager : MonoBehaviourPunCallbacks, IPunObservable
         };
         ShowSlotInRoom();
     }
+   
+    private void ResetStateAfterMatch()
+    {
+        var hash = PhotonNetwork.LocalPlayer.CustomProperties;
+        hash["Ready"] = false;
+        PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        //ExitGames.Client.Photon.Hashtable ht = PhotonNetwork.LocalPlayer.CustomProperties;
+
+    }
+    private GameObject instObject;
+    
     private void ShowSlotInRoom()
     {
         
         //Player[] players = PhotonNetwork.PlayerList;
-        PhotonNetwork.Instantiate(prefabSlot.name, Vector3.zero, Quaternion.identity, 0);
+        instObject = PhotonNetwork.Instantiate(prefabSlot.name, Vector3.zero, Quaternion.identity, 0);
 
         //slot.transform.SetParent(Bg);
 
@@ -84,6 +96,11 @@ public class WaitingRoomManager : MonoBehaviourPunCallbacks, IPunObservable
         //}    
     }
     
+    [PunRPC]
+    public void DestroySlot()
+    {
+        PhotonNetwork.Destroy(instObject);
+    }
     private void LeaveThisRoom()
     {
         PhotonNetwork.LeaveRoom();
@@ -91,10 +108,23 @@ public class WaitingRoomManager : MonoBehaviourPunCallbacks, IPunObservable
     }
     public override void OnLeftRoom()
     {
-        Debug.LogError("hic");
-
-        SceneManager.LoadScene("RankingMatch");
         base.OnLeftRoom();
+        Debug.LogError("hic");
+        ptnView.RPC("DestroySlot", RpcTarget.All);
+        SceneManager.LoadScene("RankingMatch");
+        
+    }
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        base.OnPlayerEnteredRoom(newPlayer);
+        Debug.LogError(PhotonNetwork.CurrentRoom.PlayerCount + " ///hihi");
+        ptnView.RPC("CreateMasterClientSlot", RpcTarget.Others);
+    }
+    [PunRPC]
+    public void CreateMasterClientSlot()
+    {
+        //PhotonNetwork.Instantiate(prefabSlot.name, Vector3.zero, Quaternion.identity, 0);
+        //Instantiate(prefabSlot, Vector3.zero, Quaternion.identity);
     }
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -122,6 +152,7 @@ public class WaitingRoomManager : MonoBehaviourPunCallbacks, IPunObservable
         //}
         
     }
+
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
         base.OnMasterClientSwitched(newMasterClient);
@@ -140,15 +171,17 @@ public class WaitingRoomManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if(PhotonNetwork.PlayerList.All(p => p.CustomProperties.ContainsKey("Ready") && (bool) p.CustomProperties["Ready"] == true) && PhotonNetwork.PlayerList.Length == 2)//neu dung countofPlayer thi ko dung vi se tinh so player online
         {
+            //PhotonNetwork.LoadLevel("FightPlace");
             ptnView.RPC("GoToMatch", RpcTarget.All); 
         }
     }
     [PunRPC]
     public void GoToMatch()
-    { 
-        
+    {
+        //SceneManager.LoadScene("FightPlace");
         PhotonNetwork.LoadLevel("FightPlace");
     }
+    
     //public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
     //{
     //    base.OnPlayerPropertiesUpdate(targetPlayer, changedProps);

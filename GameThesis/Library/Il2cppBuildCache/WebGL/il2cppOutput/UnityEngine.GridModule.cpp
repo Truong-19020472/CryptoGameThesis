@@ -12,6 +12,8 @@
 
 
 
+// UnityEngine.Grid
+struct Grid_t22D0DEF54366450C35DA4B795F06534948AA0236;
 // UnityEngine.GridLayout
 struct GridLayout_t7BA9C388D3466CA1F18CAD50848F670F670D5D29;
 // System.String
@@ -451,12 +453,23 @@ public:
 public:
 };
 
+
+// UnityEngine.Grid
+struct Grid_t22D0DEF54366450C35DA4B795F06534948AA0236  : public GridLayout_t7BA9C388D3466CA1F18CAD50848F670F670D5D29
+{
+public:
+
+public:
+};
+
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
 
 
 
+// System.Void UnityEngine.Grid::get_cellSize_Injected(UnityEngine.Vector3&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Grid_get_cellSize_Injected_m317A69C0DFAE043283FB01FE6717275D8023323F (Grid_t22D0DEF54366450C35DA4B795F06534948AA0236 * __this, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E * ___ret0, const RuntimeMethod* method);
 // System.Void UnityEngine.GridLayout::CellToLocalInterpolated_Injected(UnityEngine.Vector3&,UnityEngine.Vector3&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GridLayout_CellToLocalInterpolated_Injected_m81BDFDF4DB1A95D1D19194DADD9CA3A708D4F314 (GridLayout_t7BA9C388D3466CA1F18CAD50848F670F670D5D29 * __this, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E * ___cellPosition0, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E * ___ret1, const RuntimeMethod* method);
 // System.Void UnityEngine.GridLayout::CellToWorld_Injected(UnityEngine.Vector3Int&,UnityEngine.Vector3&)
@@ -470,6 +483,34 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GridLayout_LocalToWorld_Injected_m793C4D
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// UnityEngine.Vector3 UnityEngine.Grid::get_cellSize()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  Grid_get_cellSize_m350AB6E17937E92D1C02410690D6160792D27B6C (Grid_t22D0DEF54366450C35DA4B795F06534948AA0236 * __this, const RuntimeMethod* method)
+{
+	Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	{
+		Grid_get_cellSize_Injected_m317A69C0DFAE043283FB01FE6717275D8023323F(__this, (Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E *)(&V_0), /*hidden argument*/NULL);
+		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_0 = V_0;
+		return L_0;
+	}
+}
+// System.Void UnityEngine.Grid::get_cellSize_Injected(UnityEngine.Vector3&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Grid_get_cellSize_Injected_m317A69C0DFAE043283FB01FE6717275D8023323F (Grid_t22D0DEF54366450C35DA4B795F06534948AA0236 * __this, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E * ___ret0, const RuntimeMethod* method)
+{
+	typedef void (*Grid_get_cellSize_Injected_m317A69C0DFAE043283FB01FE6717275D8023323F_ftn) (Grid_t22D0DEF54366450C35DA4B795F06534948AA0236 *, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E *);
+	static Grid_get_cellSize_Injected_m317A69C0DFAE043283FB01FE6717275D8023323F_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Grid_get_cellSize_Injected_m317A69C0DFAE043283FB01FE6717275D8023323F_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Grid::get_cellSize_Injected(UnityEngine.Vector3&)");
+	_il2cpp_icall_func(__this, ___ret0);
+}
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

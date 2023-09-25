@@ -1,1 +1,45 @@
-{"id":1,"shopItemList":[{"type":0,"properties":"{\"iconSource\":\"GoldFrog\",\"star\":1,\"power\":\"1/4\",\"health\":\"1/4\",\"speed\":\"3/6\"}","price":"0.3"},{"type":0,"properties":"{\"iconSource\":\"GreenFrog\",\"star\":1,\"power\":\"1/4\",\"health\":\"1/4\",\"speed\":\"4/6\"}","price":"0.35"},{"type":0,"properties":"{\"iconSource\":\"WaterWitch\",\"star\":1,\"power\":\"3/4\",\"health\":\"1/4\",\"speed\":\"2/4\"}","price":"0.55"},{"type":0,"properties":"{\"iconSource\":\"RedKing\",\"star\":1,\"power\":\"3/5\",\"health\":\"1/4\",\"speed\":\"3/5\"}","price":"0.6"},{"type":0,"properties":"{\"iconSource\":\"GreenWarrior\",\"star\":1,\"power\":\"2/5\",\"health\":\"2/5\",\"speed\":\"2/4\"}","price":"0.5"},{"type":0,"properties":"{\"iconSource\":\"BloodWolfMan\",\"star\":1,\"power\":\"3/4\",\"health\":\"1/4\",\"speed\":\"3/6\"}","price":"0.4"},{"type":0,"properties":"{\"iconSource\":\"EpicWitch\",\"star\":1,\"power\":\"2/5\",\"health\":\"2/4\",\"speed\":\"4/6\"}","price":"0.55"},{"type":0,"properties":"{\"iconSource\":\"NormalCowboy\",\"star\":1,\"power\":\"2/5\",\"health\":\"1/4\",\"speed\":\"2/5\"}","price":"0.45"}]}
+{
+  "id": 1,
+  "shopItemList": [
+    {
+      "type": 0,
+      "properties": "{\"iconSource\":\"GoldFrog\",\"star\":1,\"power\":\"1/4\",\"health\":\"1/4\",\"speed\":\"3/6\"}",
+      "price": "10.00"
+    },
+    {
+      "type": 0,
+      "properties": "{\"iconSource\":\"GreenFrog\",\"star\":1,\"power\":\"1/4\",\"health\":\"1/4\",\"speed\":\"4/6\"}",
+      "price": "10.00"
+    },
+    {
+      "type": 0,
+      "properties": "{\"iconSource\":\"WaterWitch\",\"star\":1,\"power\":\"3/4\",\"health\":\"1/4\",\"speed\":\"2/4\"}",
+      "price": "20.00"
+    },
+    {
+      "type": 0,
+      "properties": "{\"iconSource\":\"RedKing\",\"star\":1,\"power\":\"3/5\",\"health\":\"1/4\",\"speed\":\"3/5\"}",
+      "price": "50.00"
+    },
+    {
+      "type": 0,
+      "properties": "{\"iconSource\":\"GreenWarrior\",\"star\":1,\"power\":\"2/5\",\"health\":\"2/5\",\"speed\":\"2/4\"}",
+      "price": "50.00"
+    },
+    {
+      "type": 0,
+      "properties": "{\"iconSource\":\"BloodWolfMan\",\"star\":1,\"power\":\"3/4\",\"health\":\"1/4\",\"speed\":\"3/6\"}",
+      "price": "30.00"
+    },
+    {
+      "type": 0,
+      "properties": "{\"iconSource\":\"EpicWitch\",\"star\":1,\"power\":\"2/5\",\"health\":\"2/4\",\"speed\":\"4/6\"}",
+      "price": "60.00"
+    },
+    {
+      "type": 0,
+      "properties": "{\"iconSource\":\"NormalCowboy\",\"star\":1,\"power\":\"2/5\",\"health\":\"1/4\",\"speed\":\"2/5\"}",
+      "price": "50.00"
+    }
+  ]
+}

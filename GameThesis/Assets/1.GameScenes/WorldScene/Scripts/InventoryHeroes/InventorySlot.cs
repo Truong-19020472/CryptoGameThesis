@@ -4,26 +4,38 @@ using UnityEngine;
 using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
+    public int index;
     public Text nameTxt;
     public Image icon;
     public Button slot;
-    public bool isUsed = false;
-    public InventoryItem item;
+    public int isUsed;
+    //public InventoryItem item;
+    //public FireBaseData.HeroFireBase bomberInFirebase;
+    public Bomberman bomber { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
         slot.onClick.AddListener(SelectItem);
     }
-
-    public void InitSlot(InventoryItem newItem)
+    public void ChangeData(int newSt)
     {
-        item = newItem;
-        nameTxt.text = item.name;
-        icon.sprite = Resources.Load<Sprite>($"HeroImages/{item.iconName}");
-        isUsed = item.isUsed;
+        GameData.heroFirebase[index].state = newSt;
+        FireBaseData.instanceData.UpdateStateHero(GameData.heroFirebase[index]);
+    }
+    public void InitSlot(int idInData)
+    {
+        index = idInData;
+        //bomberInFirebase = heroFb;
+        bomber = JsonUtility.FromJson<Bomberman>(GameData.heroFirebase[index].properties);
+        nameTxt.text = bomber.iconSource;
+        icon.sprite = Resources.Load<Sprite>($"HeroImages/{bomber.iconSource}");
+        isUsed = GameData.heroFirebase[index].state;
     }    
+    /// <summary>
+    /// event when click item button
+    /// </summary>
     public void SelectItem()
     {
-        InventoryHeroesManager.instance.ChooseItem(this);
+        HeroesManager.instance.ChooseItem(this);
     }
 }

@@ -12,6 +12,10 @@ public class ItemDescription : MonoBehaviour
     public ShopConfirmPanel confirmPanel;
 
     public Sprite defaultSp;
+
+    public Text star, speed, power, health;
+
+
     void Start()
     {
         if(currentItem == null)
@@ -25,15 +29,31 @@ public class ItemDescription : MonoBehaviour
     }
     public void ShowDescriptionIcon(ShopItem itemShow, Sprite sp)
     {
+        if(itemShow.type == ItemType.hero)
+        {
+            Bomberman hero = JsonUtility.FromJson<Bomberman>(itemShow.properties);
+            speed.text = hero.speed;
+            health.text = hero.health;
+            power.text = hero.power;
+            star.text = hero.star.ToString();
+        }    
         currentItem = itemShow;
         img.sprite = sp;
-        description.text = JsonUtility.ToJson(currentItem);
-        buy.interactable = true;
+        
+        
         priceTxt.text = itemShow.price;
+        if(PlayerPrefs.GetFloat("ERC20Token") > float.Parse(currentItem.price))
+        {
+            buy.interactable = true;
+        }    
+        else
+        {
+            buy.interactable = false;
+        }    
     }
     public void ShowBuyingCheck()
     {
-        if(PlayerPrefs.GetFloat("CurrentToken") > float.Parse(currentItem.price))
+        if(PlayerPrefs.GetFloat("ERC20Token") > float.Parse(currentItem.price))
         {
             confirmPanel.gameObject.SetActive(true);
             confirmPanel.SetItemToConfirm(currentItem);

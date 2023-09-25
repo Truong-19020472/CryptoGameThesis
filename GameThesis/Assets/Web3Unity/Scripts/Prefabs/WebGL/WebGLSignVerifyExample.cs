@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 #if UNITY_WEBGL
 
 public class WebGLSignVerifyExample : MonoBehaviour
@@ -28,12 +28,14 @@ public class WebGLSignVerifyExample : MonoBehaviour
             Task<string> verify = EVM.Verify(hashedMessage, signHashed);
             verifyAddress.text = await verify;
             Debug.Log("Verify Address: " + verifyAddress.text);
+            SceneManager.LoadScene("WorldScene");
         }
         catch (Exception e)
         {
             Debug.LogException(e, this);
         }
     }
+    
     public void ParseSignatureFunction(string sig)
     {
         string signature = sig;

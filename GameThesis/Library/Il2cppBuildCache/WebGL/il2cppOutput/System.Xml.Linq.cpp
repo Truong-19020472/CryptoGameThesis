@@ -12476,7 +12476,7 @@ IL_0014:
 		Type_t * L_6 = ___type0;
 		RuntimeObject * L_7 = __this->get_annotations_1();
 		bool L_8;
-		L_8 = VirtFuncInvoker1< bool, RuntimeObject * >::Invoke(113 /* System.Boolean System.Type::IsInstanceOfType(System.Object) */, L_6, L_7);
+		L_8 = VirtFuncInvoker1< bool, RuntimeObject * >::Invoke(114 /* System.Boolean System.Type::IsInstanceOfType(System.Object) */, L_6, L_7);
 		if (!L_8)
 		{
 			goto IL_0060;
@@ -12510,7 +12510,7 @@ IL_0044:
 		Type_t * L_15 = ___type0;
 		RuntimeObject * L_16 = V_2;
 		bool L_17;
-		L_17 = VirtFuncInvoker1< bool, RuntimeObject * >::Invoke(113 /* System.Boolean System.Type::IsInstanceOfType(System.Object) */, L_15, L_16);
+		L_17 = VirtFuncInvoker1< bool, RuntimeObject * >::Invoke(114 /* System.Boolean System.Type::IsInstanceOfType(System.Object) */, L_15, L_16);
 		if (!L_17)
 		{
 			goto IL_0056;

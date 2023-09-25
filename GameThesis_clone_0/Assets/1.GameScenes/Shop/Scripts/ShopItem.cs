@@ -11,6 +11,7 @@ public class ShopItem
     public string price;
     
 }
+
 [Serializable]
 public class ListShopItem
 {
@@ -30,6 +31,41 @@ public class ListShopItem
         shopItemList.Add(it);
     }
 }
+[Serializable]
+
+public class InventoryHeroList
+{
+    public List<Bomberman> heroList = new List<Bomberman>();
+    public InventoryHeroList()
+    {
+
+    }
+    public InventoryHeroList(Bomberman bombHero)
+    {
+        heroList.Add(bombHero);
+    }
+    public void AddHero(Bomberman man)
+    {
+        heroList.Add(man);
+    }
+    public void AddHeroList(List<Bomberman> bombermanList)
+    {
+        heroList = bombermanList;
+    }
+    public void AddOtherList(InventoryHeroList otherList)
+    {
+        for(int i = 0; i < otherList.heroList.Count; i++)
+        {
+            heroList.Add(otherList.heroList[i]);
+        }
+    }
+}
+//[Serializable]
+//public class HeroItem
+//{
+//    public string properties;
+//    public bool isUse;
+//}
 [Serializable]
 public class Bomberman
 {

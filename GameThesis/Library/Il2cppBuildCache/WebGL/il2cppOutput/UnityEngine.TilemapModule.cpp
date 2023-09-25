@@ -1373,6 +1373,15 @@ public:
 };
 
 
+// UnityEngine.Collider2D
+struct Collider2D_tDDBF081328B83D21D0BA3B5036D77B32528BA722  : public Behaviour_t1A3DDDCF73B4627928FBFE02ED52B7251777DBD9
+{
+public:
+
+public:
+};
+
+
 // UnityEngine.GridLayout
 struct GridLayout_t7BA9C388D3466CA1F18CAD50848F670F670D5D29  : public Behaviour_t1A3DDDCF73B4627928FBFE02ED52B7251777DBD9
 {
@@ -1463,6 +1472,15 @@ public:
 
 // UnityEngine.Tilemaps.Tilemap
 struct Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31  : public GridLayout_t7BA9C388D3466CA1F18CAD50848F670F670D5D29
+{
+public:
+
+public:
+};
+
+
+// UnityEngine.Tilemaps.TilemapCollider2D
+struct TilemapCollider2D_t554A627D7A4BE08578291B19309B8C81C28DDF98  : public Collider2D_tDDBF081328B83D21D0BA3B5036D77B32528BA722
 {
 public:
 
@@ -1590,6 +1608,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Action_1__ctor_mA671E933C9D3DAE4E3F71D34
 
 // System.Void System.Object::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object__ctor_m88880E0413421D13FD95325EDCE231707CE1F405 (RuntimeObject * __this, const RuntimeMethod* method);
+// UnityEngine.Tilemaps.TileBase UnityEngine.Tilemaps.Tilemap::GetTile(UnityEngine.Vector3Int)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TileBase_t151317678DF54EED207F0AD6F4C590272B9AA052 * Tilemap_GetTile_m611C89C47D6FE68099998192BA57344FCE782B19 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA  ___position0, const RuntimeMethod* method);
 // System.Void UnityEngine.Tilemaps.Tilemap::RefreshTile(UnityEngine.Vector3Int)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_RefreshTile_m1A2B0119B58A5E409BF899A1F88CBD3E23599193 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA  ___position0, const RuntimeMethod* method);
 // System.Void UnityEngine.Tilemaps.ITilemap::.ctor()
@@ -1644,8 +1664,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_get_origin_Injected_mB1E1BC74D0E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_get_size_Injected_m2C5B2ADB780D3AC63FF7D13445BB7E14CFCB2AA7 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA * ___ret0, const RuntimeMethod* method);
 // System.Void UnityEngine.Tilemaps.Tilemap::get_tileAnchor_Injected(UnityEngine.Vector3&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_get_tileAnchor_Injected_m4C6546C039D2F0BC3A5A9345FFCB07C79D2B4AAB (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E * ___ret0, const RuntimeMethod* method);
+// System.Void UnityEngine.Tilemaps.Tilemap::get_orientationMatrix_Injected(UnityEngine.Matrix4x4&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_get_orientationMatrix_Injected_mB61409AE9B5B688B4A2ACE2D15245ED8074B33AF (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Matrix4x4_tDE7FF4F2E2EA284F6EFE00D627789D0E5B8B4461 * ___ret0, const RuntimeMethod* method);
 // UnityEngine.Object UnityEngine.Tilemaps.Tilemap::GetTileAsset_Injected(UnityEngine.Vector3Int&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * Tilemap_GetTileAsset_Injected_m632E7E10EC04E35192B62540C77B761108A72906 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA * ___position0, const RuntimeMethod* method);
+// UnityEngine.Object UnityEngine.Tilemaps.Tilemap::GetTileAsset(UnityEngine.Vector3Int)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * Tilemap_GetTileAsset_m215A0A83B20762734719DDD4BDA6CC7D6985D5DB (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA  ___position0, const RuntimeMethod* method);
 // UnityEngine.Object[] UnityEngine.Tilemaps.Tilemap::GetTileAssetsBlock_Injected(UnityEngine.Vector3Int&,UnityEngine.Vector3Int&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ObjectU5BU5D_t1256A8B00BB71C7F582BF08257BE4F826FF64873* Tilemap_GetTileAssetsBlock_Injected_m63BEFDED5345F204C5F205A1F11A6C628B492BE9 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA * ___position0, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA * ___blockDimensions1, const RuntimeMethod* method);
 // UnityEngine.Vector3Int UnityEngine.BoundsInt::get_min()
@@ -1658,12 +1682,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ObjectU5BU5D_t1256A8B00BB71C7F582BF08257BE4F8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_SetTileAsset_Injected_m20D59868EB4DE2F972DDAEFBD4CDD140529D13F8 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA * ___position0, Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * ___tile1, const RuntimeMethod* method);
 // System.Void UnityEngine.Tilemaps.Tilemap::SetTileAsset(UnityEngine.Vector3Int,UnityEngine.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_SetTileAsset_m8158B9411ED255A0D02C51CBF90E17CBDB314B12 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA  ___position0, Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * ___tile1, const RuntimeMethod* method);
-// UnityEngine.Object UnityEngine.Tilemaps.Tilemap::GetTileAsset(UnityEngine.Vector3Int)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * Tilemap_GetTileAsset_m215A0A83B20762734719DDD4BDA6CC7D6985D5DB (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA  ___position0, const RuntimeMethod* method);
 // System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Object_op_Inequality_mE1F187520BD83FB7D86A6D850710C4D42B864E90 (Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * ___x0, Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * ___y1, const RuntimeMethod* method);
 // System.Void UnityEngine.Tilemaps.Tilemap::RefreshTile_Injected(UnityEngine.Vector3Int&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_RefreshTile_Injected_mB711BD24637434562FA9278325FEE07FC0931B32 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA * ___position0, const RuntimeMethod* method);
+// System.Int32 UnityEngine.Tilemaps.Tilemap::Internal_GetUsedTilesNonAlloc(UnityEngine.Object[])
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Tilemap_Internal_GetUsedTilesNonAlloc_mD052D30EFA9CABB8DE4A7021EAF04A2E549B2C7A (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, ObjectU5BU5D_t1256A8B00BB71C7F582BF08257BE4F826FF64873* ___usedTiles0, const RuntimeMethod* method);
 // System.Void System.Action`1<UnityEngine.U2D.SpriteAtlas>::.ctor(System.Object,System.IntPtr)
 inline void Action_1__ctor_mA1131790E07477705CD8A08A98BBDF0B61EC3E02 (Action_1_tFA33A618CBBE03EC01FE6A4CD6489392526BA5FF * __this, RuntimeObject * ___object0, intptr_t ___method1, const RuntimeMethod* method)
 {
@@ -1700,6 +1724,25 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ITilemap__ctor_m94E2A628CC647832AA3B5762
 	{
 		Object__ctor_m88880E0413421D13FD95325EDCE231707CE1F405(__this, /*hidden argument*/NULL);
 		return;
+	}
+}
+// UnityEngine.Tilemaps.TileBase UnityEngine.Tilemaps.ITilemap::GetTile(UnityEngine.Vector3Int)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TileBase_t151317678DF54EED207F0AD6F4C590272B9AA052 * ITilemap_GetTile_m4F3A3C84C95230AF3EB3F1A6138EC4E34028F0D0 (ITilemap_t706EAD5C1A9032E29FF4454BDDED85C53C5E0013 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA  ___position0, const RuntimeMethod* method)
+{
+	TileBase_t151317678DF54EED207F0AD6F4C590272B9AA052 * V_0 = NULL;
+	{
+		Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * L_0 = __this->get_m_Tilemap_1();
+		Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA  L_1 = ___position0;
+		TileBase_t151317678DF54EED207F0AD6F4C590272B9AA052 * L_2;
+		L_2 = Tilemap_GetTile_m611C89C47D6FE68099998192BA57344FCE782B19(L_0, L_1, /*hidden argument*/NULL);
+		V_0 = L_2;
+		goto IL_0010;
+	}
+
+IL_0010:
+	{
+		TileBase_t151317678DF54EED207F0AD6F4C590272B9AA052 * L_3 = V_0;
+		return L_3;
 	}
 }
 // System.Void UnityEngine.Tilemaps.ITilemap::RefreshTile(UnityEngine.Vector3Int)
@@ -2368,6 +2411,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90
 		return L_0;
 	}
 }
+// UnityEngine.Matrix4x4 UnityEngine.Tilemaps.Tilemap::get_orientationMatrix()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Matrix4x4_tDE7FF4F2E2EA284F6EFE00D627789D0E5B8B4461  Tilemap_get_orientationMatrix_m4308A75624FD0D7DAF6CAC037AA0C1EC7E3A03F4 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, const RuntimeMethod* method)
+{
+	Matrix4x4_tDE7FF4F2E2EA284F6EFE00D627789D0E5B8B4461  V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	{
+		Tilemap_get_orientationMatrix_Injected_mB61409AE9B5B688B4A2ACE2D15245ED8074B33AF(__this, (Matrix4x4_tDE7FF4F2E2EA284F6EFE00D627789D0E5B8B4461 *)(&V_0), /*hidden argument*/NULL);
+		Matrix4x4_tDE7FF4F2E2EA284F6EFE00D627789D0E5B8B4461  L_0 = V_0;
+		return L_0;
+	}
+}
 // UnityEngine.Object UnityEngine.Tilemaps.Tilemap::GetTileAsset(UnityEngine.Vector3Int)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * Tilemap_GetTileAsset_m215A0A83B20762734719DDD4BDA6CC7D6985D5DB (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA  ___position0, const RuntimeMethod* method)
 {
@@ -2375,6 +2429,30 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Object_tF2F3778131EFF286AF62B7B013A170F95A915
 		Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * L_0;
 		L_0 = Tilemap_GetTileAsset_Injected_m632E7E10EC04E35192B62540C77B761108A72906(__this, (Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA *)(&___position0), /*hidden argument*/NULL);
 		return L_0;
+	}
+}
+// UnityEngine.Tilemaps.TileBase UnityEngine.Tilemaps.Tilemap::GetTile(UnityEngine.Vector3Int)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TileBase_t151317678DF54EED207F0AD6F4C590272B9AA052 * Tilemap_GetTile_m611C89C47D6FE68099998192BA57344FCE782B19 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA  ___position0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TileBase_t151317678DF54EED207F0AD6F4C590272B9AA052_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	TileBase_t151317678DF54EED207F0AD6F4C590272B9AA052 * V_0 = NULL;
+	{
+		Vector3Int_t197C3BA05CF19F1A22D40F8AE64CD4102AFB77EA  L_0 = ___position0;
+		Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * L_1;
+		L_1 = Tilemap_GetTileAsset_m215A0A83B20762734719DDD4BDA6CC7D6985D5DB(__this, L_0, /*hidden argument*/NULL);
+		V_0 = ((TileBase_t151317678DF54EED207F0AD6F4C590272B9AA052 *)IsInstClass((RuntimeObject*)L_1, TileBase_t151317678DF54EED207F0AD6F4C590272B9AA052_il2cpp_TypeInfo_var));
+		goto IL_0010;
+	}
+
+IL_0010:
+	{
+		TileBase_t151317678DF54EED207F0AD6F4C590272B9AA052 * L_2 = V_0;
+		return L_2;
 	}
 }
 // UnityEngine.Object[] UnityEngine.Tilemaps.Tilemap::GetTileAssetsBlock(UnityEngine.Vector3Int,UnityEngine.Vector3Int)
@@ -2507,6 +2585,47 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_RefreshTile_m1A2B0119B58A5E409BF
 		return;
 	}
 }
+// System.Int32 UnityEngine.Tilemaps.Tilemap::GetUsedTilesCount()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Tilemap_GetUsedTilesCount_m2FD2372F3B4C913472A6CC6B1C56A79087359021 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, const RuntimeMethod* method)
+{
+	typedef int32_t (*Tilemap_GetUsedTilesCount_m2FD2372F3B4C913472A6CC6B1C56A79087359021_ftn) (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 *);
+	static Tilemap_GetUsedTilesCount_m2FD2372F3B4C913472A6CC6B1C56A79087359021_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Tilemap_GetUsedTilesCount_m2FD2372F3B4C913472A6CC6B1C56A79087359021_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Tilemaps.Tilemap::GetUsedTilesCount()");
+	int32_t icallRetVal = _il2cpp_icall_func(__this);
+	return icallRetVal;
+}
+// System.Int32 UnityEngine.Tilemaps.Tilemap::GetUsedTilesNonAlloc(UnityEngine.Tilemaps.TileBase[])
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Tilemap_GetUsedTilesNonAlloc_m216E97F4A6C103B659D197B51E002663B9D56D23 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, TileBaseU5BU5D_t9D113C5AC37048FAC6A25181181921FC203459E7* ___usedTiles0, const RuntimeMethod* method)
+{
+	ObjectU5BU5D_t1256A8B00BB71C7F582BF08257BE4F826FF64873* V_0 = NULL;
+	int32_t V_1 = 0;
+	{
+		TileBaseU5BU5D_t9D113C5AC37048FAC6A25181181921FC203459E7* L_0 = ___usedTiles0;
+		V_0 = (ObjectU5BU5D_t1256A8B00BB71C7F582BF08257BE4F826FF64873*)L_0;
+		ObjectU5BU5D_t1256A8B00BB71C7F582BF08257BE4F826FF64873* L_1 = V_0;
+		int32_t L_2;
+		L_2 = Tilemap_Internal_GetUsedTilesNonAlloc_mD052D30EFA9CABB8DE4A7021EAF04A2E549B2C7A(__this, L_1, /*hidden argument*/NULL);
+		V_1 = L_2;
+		goto IL_000d;
+	}
+
+IL_000d:
+	{
+		int32_t L_3 = V_1;
+		return L_3;
+	}
+}
+// System.Int32 UnityEngine.Tilemaps.Tilemap::Internal_GetUsedTilesNonAlloc(UnityEngine.Object[])
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Tilemap_Internal_GetUsedTilesNonAlloc_mD052D30EFA9CABB8DE4A7021EAF04A2E549B2C7A (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, ObjectU5BU5D_t1256A8B00BB71C7F582BF08257BE4F826FF64873* ___usedTiles0, const RuntimeMethod* method)
+{
+	typedef int32_t (*Tilemap_Internal_GetUsedTilesNonAlloc_mD052D30EFA9CABB8DE4A7021EAF04A2E549B2C7A_ftn) (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 *, ObjectU5BU5D_t1256A8B00BB71C7F582BF08257BE4F826FF64873*);
+	static Tilemap_Internal_GetUsedTilesNonAlloc_mD052D30EFA9CABB8DE4A7021EAF04A2E549B2C7A_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Tilemap_Internal_GetUsedTilesNonAlloc_mD052D30EFA9CABB8DE4A7021EAF04A2E549B2C7A_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Tilemaps.Tilemap::Internal_GetUsedTilesNonAlloc(UnityEngine.Object[])");
+	int32_t icallRetVal = _il2cpp_icall_func(__this, ___usedTiles0);
+	return icallRetVal;
+}
 // System.Void UnityEngine.Tilemaps.Tilemap::CompressBounds()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_CompressBounds_mCF94C3B02F565EC4B86585B9521203EDED0EBA16 (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, const RuntimeMethod* method)
 {
@@ -2541,6 +2660,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_get_tileAnchor_Injected_m4C6546C
 	static Tilemap_get_tileAnchor_Injected_m4C6546C039D2F0BC3A5A9345FFCB07C79D2B4AAB_ftn _il2cpp_icall_func;
 	if (!_il2cpp_icall_func)
 	_il2cpp_icall_func = (Tilemap_get_tileAnchor_Injected_m4C6546C039D2F0BC3A5A9345FFCB07C79D2B4AAB_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Tilemaps.Tilemap::get_tileAnchor_Injected(UnityEngine.Vector3&)");
+	_il2cpp_icall_func(__this, ___ret0);
+}
+// System.Void UnityEngine.Tilemaps.Tilemap::get_orientationMatrix_Injected(UnityEngine.Matrix4x4&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_get_orientationMatrix_Injected_mB61409AE9B5B688B4A2ACE2D15245ED8074B33AF (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 * __this, Matrix4x4_tDE7FF4F2E2EA284F6EFE00D627789D0E5B8B4461 * ___ret0, const RuntimeMethod* method)
+{
+	typedef void (*Tilemap_get_orientationMatrix_Injected_mB61409AE9B5B688B4A2ACE2D15245ED8074B33AF_ftn) (Tilemap_t0A1D80C1C0EDF8BDB0A2E274DC0826EF03642F31 *, Matrix4x4_tDE7FF4F2E2EA284F6EFE00D627789D0E5B8B4461 *);
+	static Tilemap_get_orientationMatrix_Injected_mB61409AE9B5B688B4A2ACE2D15245ED8074B33AF_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Tilemap_get_orientationMatrix_Injected_mB61409AE9B5B688B4A2ACE2D15245ED8074B33AF_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Tilemaps.Tilemap::get_orientationMatrix_Injected(UnityEngine.Matrix4x4&)");
 	_il2cpp_icall_func(__this, ___ret0);
 }
 // UnityEngine.Object UnityEngine.Tilemaps.Tilemap::GetTileAsset_Injected(UnityEngine.Vector3Int&)
@@ -2581,6 +2709,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tilemap_RefreshTile_Injected_mB711BD2463
 	_il2cpp_icall_func = (Tilemap_RefreshTile_Injected_mB711BD24637434562FA9278325FEE07FC0931B32_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Tilemaps.Tilemap::RefreshTile_Injected(UnityEngine.Vector3Int&)");
 	_il2cpp_icall_func(__this, ___position0);
 }
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

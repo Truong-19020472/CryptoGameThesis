@@ -22,18 +22,13 @@ public class BombermanScripts : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentmap = GameObject.Find("Wall").GetComponent<Tilemap>();
+        currentmap = BomberMapController.instance.GetCurrentMap();
         currentTarget = Instantiate(prefabTargetPos, transform.position + Vector3.right, Quaternion.identity);
         aiSetter.target = currentTarget;
         InvokeRepeating("UpdatePath", 0, 0.5f);
         //UpdatePath();
         //seeker.StartPath(transform.position, targetPos.position, OnPathComplete);
     }
-    //private void OnLevelWasLoaded(int level)
-    //{
-    //    CancelInvoke("UpdatePath");
-        
-    //}
     public void InitHero(string spPath, float _speed, float maxSpd, int power, int maxPower)
     {
         speed = _speed;
@@ -55,121 +50,81 @@ public class BombermanScripts : MonoBehaviour
         if(seeker.IsDone())
             seeker.StartPath(transform.position, currentTarget.position, OnPathComplete);
     }
-
+    private bool isEndGame = false;
     private void FixedUpdate()
     {
-        if (path == null)
+        if(isEndGame == false)
         {
-            return;
-        }
-        //if (path.vectorPath.Count <= 0) return;
-        if (currentWayPoint >= path.vectorPath.Count)
-        {
-            //isReached = true;
-            //return;
-            if (targetCanPutBomb == true)
+            if (path == null)
             {
-                Vector3Int cell = currentmap.WorldToCell(transform.position);
-                Vector3 bombPos = currentmap.GetCellCenterWorld(cell);
-                BombScript bom = Instantiate(prefabBomb, bombPos, Quaternion.identity);
-                bom.power = powerBomb;
-                //Destroy(bom.gameObject, 3f);
-                //Invoke("UpdateMap", 3f);
-
+                return;
             }
+            //if (path.vectorPath.Count <= 0) return;
+            if (currentWayPoint >= path.vectorPath.Count)
+            {
+                //isReached = true;
+                //return;
+                if (targetCanPutBomb == true)
+                {
+                    Vector3Int cell = currentmap.WorldToCell(transform.position);
+                    Vector3 bombPos = currentmap.GetCellCenterWorld(cell);
+                    BombScript bom = Instantiate(prefabBomb, bombPos, Quaternion.identity);
+                    bom.power = Random.Range(powerBomb, maxPower);
+                    //Destroy(bom.gameObject, 3f);
+                    //Invoke("UpdateMap", 3f);
 
-            FindTheCellToMove();
-            UpdatePath();
-            return;
-        }
-        else
-        {
-            isReached = false;
-        }
-        Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - (Vector2)transform.position).normalized;
-        transform.GetComponent<Rigidbody2D>().MovePosition((Vector2)transform.position + direction * Time.deltaTime * speed);
-        float distance = Vector2.Distance(transform.position, path.vectorPath[currentWayPoint]);
-        if (distance < 0.2f)
-        {
-            currentWayPoint++;
-        }
+                }
 
-
-
-
-        //if (aIPath.reachedDestination)
-        //{
-        //    FindTheCellToMove();
-        //}
-        //else
-        //{
-
-        //}
-        //if(seeker.GetCurrentPath().path.Count > 0)
-        //{
-
-        //}    
-        //if (Input.GetKey(KeyCode.UpArrow))
-        //{
-        //    if (Physics2D.BoxCast(transform.position, new Vector2(0.7f, 0.7f), 0f, Vector2.up, 0.1f, LayerMask.GetMask("Obstacle")).collider == null)//tránh check vào collider của player
-        //    {
-        //        //transform.GetComponent<Rigidbody2D>().MovePosition(transform.position + Vector3.up * Time.deltaTime * speed);
-        //        transform.position += Vector3.up * Time.deltaTime * 5;
-        //    }
-        //    else
-        //    {
-
-        //        Debug.LogError("hit");
-        //    }
-
-        //}
-        //if (Input.GetKey(KeyCode.DownArrow))
-        //{
-        //    if (Physics2D.BoxCast(transform.position, new Vector2(0.7f, 0.7f), 0f, Vector2.down, 0.1f, LayerMask.GetMask("Obstacle")).collider == null)
-        //    {
-        //        transform.position += Vector3.down * Time.deltaTime * 5;
-        //    }
-
-        //}
-        //if (Input.GetKey(KeyCode.RightArrow))
-        //{
-
-        //    transform.GetComponent<SpriteRenderer>().flipX = false;
-        //    if (Physics2D.BoxCast(transform.position, new Vector2(0.7f, 0.7f), 0f, Vector2.right, 0.1f, LayerMask.GetMask("Obstacle")).collider == null)
-        //    {
-        //        transform.position += Vector3.right * Time.deltaTime * 5;
-        //    }
-
-        //}
-        //if (Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    transform.GetComponent<SpriteRenderer>().flipX = true;
-        //    if (Physics2D.BoxCast(transform.position, new Vector2(0.7f, 0.7f), 0f, Vector2.left, 0.1f, LayerMask.GetMask("Obstacle")).collider == null)
-        //    {
-        //        transform.position += Vector3.left * Time.deltaTime * 5;
-        //    }
-
-        //}
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    Vector3Int cell = currentmap.WorldToCell(transform.position);
-        //    Vector3 bombPos = currentmap.GetCellCenterWorld(cell);
-        //    BombScript bom = Instantiate(prefabBomb, bombPos, Quaternion.identity);
-        //    Destroy(bom.gameObject, 3f);
-        //}
+                FindTheCellToMove();
+                UpdatePath();
+                return;
+            }
+            else
+            {
+                isReached = false;
+            }
+            Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - (Vector2)transform.position).normalized;
+            transform.GetComponent<Rigidbody2D>().MovePosition((Vector2)transform.position + direction * Time.deltaTime * speed);
+            float distance = Vector2.Distance(transform.position, path.vectorPath[currentWayPoint]);
+            if (distance < 0.2f)
+            {
+                currentWayPoint++;
+            }
+        }    
+        
     }
     private List<Vector3Int> listReachableCell = new List<Vector3Int>();
     [SerializeField] private Transform prefabTargetPos;
     private Transform currentTarget;
     public bool targetCanPutBomb = false;
+    public GameObject particleEnd;
+    
+    
     private void FindTheCellToMove()
     {
         Debug.LogWarning("hey");
         Vector3Int cellPlayer = currentmap.WorldToCell(transform.position);
         listReachableCell =  BomberMapController.instance.FindPositionToPutBomb(cellPlayer);
+
         BoundsInt bounds = currentmap.cellBounds;
         if (listReachableCell.Count == 0)
+        {
+            isEndGame = true;
             return;
+            //if(BomberMapController.instance.GetRandomRemainingChest().Count == 0)
+            //{
+            //    //Instantiate(particleEnd);
+
+            //    isEndGame = true;
+            //    return;
+            //}    
+            //else
+            //{
+            //    listReachableCell = BomberMapController.instance.GetRandomRemainingChest();
+            //    currentTarget.position = currentmap.GetCellCenterWorld(listReachableCell[Random.Range(0, listReachableCell.Count)]);
+            //    targetCanPutBomb = false;
+            //}    
+        }
         List<int> indexPlace = new List<int>();
         for(int i = 0; i < listReachableCell.Count; i ++)
         {
@@ -218,9 +173,13 @@ public class BombermanScripts : MonoBehaviour
     {
         if(collision.gameObject.tag == "Chest")
         {
+            float reward = Random.Range(0.001f, 0.1f);
+            BomberMapController.instance.AddReward(reward);
+            BomberMapController.instance.RemoveChest(collision.gameObject.GetComponent<ChestScript>());
             Destroy(collision.gameObject);
             numberChest++;
         }    
     }
+    
 }
   

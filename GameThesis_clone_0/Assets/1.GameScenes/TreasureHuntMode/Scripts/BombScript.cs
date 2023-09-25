@@ -6,7 +6,7 @@ public class BombScript : MonoBehaviour
 {
     [SerializeField] private GameObject prefabExplosion;
     public int power;
-    private List<Vector3> listPositionBomb;
+    //private List<Vector3> listPositionBomb;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +28,9 @@ public class BombScript : MonoBehaviour
         BomberMapController.instance.ExplodeBomb(this);
         Destroy(gameObject);
     }
-    public void CreateExplosion(List<Vector3> listBombPos)
-    {
-        listPositionBomb = listBombPos;
-    }
+    //public void CreateExplosion(List<Vector3> listBombPos)
+    //{
+    //    //listPositionBomb = listBombPos;
+    //}
 
 }

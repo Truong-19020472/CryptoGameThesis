@@ -36,7 +36,7 @@ public class EVM
     public static async Task<string> Verify(string _message, string _signature)
     {
         WWWForm form = new WWWForm();
-        form.AddField("projectId", PlayerPrefs.GetString("ProjectID") /*"7aef1263 - ff8c - 41ce - 874a - 76ed5e19305f"*/);
+        form.AddField("projectId", PlayerPrefs.GetString("ProjectID"));
         form.AddField("message", _message);
         form.AddField("signature", _signature);
         string url = host + "/verify";

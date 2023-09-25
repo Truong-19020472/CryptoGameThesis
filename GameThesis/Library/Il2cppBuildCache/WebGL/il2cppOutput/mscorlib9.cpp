@@ -31063,7 +31063,7 @@ IL_003f:
 	{
 		Type_t * L_12 = V_1;
 		bool L_13;
-		L_13 = VirtFuncInvoker0< bool >::Invoke(79 /* System.Boolean System.Type::get_IsGenericType() */, L_12);
+		L_13 = VirtFuncInvoker0< bool >::Invoke(80 /* System.Boolean System.Type::get_IsGenericType() */, L_12);
 		if (!L_13)
 		{
 			goto IL_0078;
@@ -31078,7 +31078,7 @@ IL_003f:
 		MethodBase_t * L_16 = V_0;
 		Type_t * L_17 = V_1;
 		Type_t * L_18;
-		L_18 = VirtFuncInvoker0< Type_t * >::Invoke(104 /* System.Type System.Type::GetGenericTypeDefinition() */, L_17);
+		L_18 = VirtFuncInvoker0< Type_t * >::Invoke(105 /* System.Type System.Type::GetGenericTypeDefinition() */, L_17);
 		String_t* L_19;
 		L_19 = String_Format_m8892FAD3E9F1E11E6176840DC1EA0C40DF1F0C2B(L_14, L_15, L_16, L_18, /*hidden argument*/NULL);
 		ArgumentException_t505FA8C11E883F2D96C797AD9D396490794DEE00 * L_20 = (ArgumentException_t505FA8C11E883F2D96C797AD9D396490794DEE00 *)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentException_t505FA8C11E883F2D96C797AD9D396490794DEE00_il2cpp_TypeInfo_var)));
@@ -31425,7 +31425,7 @@ IL_0010:
 		Type_t * L_8 = L_4;
 		bool L_9 = ___serialization2;
 		String_t* L_10;
-		L_10 = VirtFuncInvoker1< String_t*, bool >::Invoke(116 /* System.String System.Type::FormatTypeName(System.Boolean) */, L_8, L_9);
+		L_10 = VirtFuncInvoker1< String_t*, bool >::Invoke(117 /* System.String System.Type::FormatTypeName(System.Boolean) */, L_8, L_9);
 		V_3 = L_10;
 		bool L_11;
 		L_11 = Type_get_IsByRef_mDB28F5482F9AE4407101B294CD3ADB01106CA4A3(L_8, /*hidden argument*/NULL);

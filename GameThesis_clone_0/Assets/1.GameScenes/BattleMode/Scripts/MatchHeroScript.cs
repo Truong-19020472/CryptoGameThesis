@@ -19,6 +19,8 @@ public class MatchHeroScript : MonoBehaviourPunCallbacks, IPunObservable
     
     private Tilemap currentmap;
     [SerializeField] private MatchBomScript prefabBomb;
+    private BattleMatchManager battleManager;
+
     private int numberCurrentBomb;
     public PhotonView view;
     Player player;
@@ -26,24 +28,27 @@ public class MatchHeroScript : MonoBehaviourPunCallbacks, IPunObservable
     {
         PhotonNetwork.SendRate = 30; //gui 30 lan tren 1s
         PhotonNetwork.SerializationRate = 20;
+        
     }
     // Start is called before the first frame update
     void Start()
     {
+
+        battleManager = GameObject.Find("MatchManager").GetComponent<BattleMatchManager>();
         numberCurrentBomb = 0;
         currentmap = GameObject.FindGameObjectWithTag("Map").GetComponent<Tilemap>();
         if(view.IsMine)
         {
-            InventoryItem selectedHero = ScriptableObject.CreateInstance("InventoryItem") as InventoryItem;
+            Bomberman selectedHero = new Bomberman();
             if (PlayerPrefs.HasKey("HeroToBattle"))
             {
-
-                JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString("HeroToBattle"), selectedHero);
+                selectedHero = JsonUtility.FromJson<Bomberman>(PlayerPrefs.GetString("HeroToBattle"));
+                //JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString("HeroToBattle"), selectedHero);
             }
             var hash = PhotonNetwork.LocalPlayer.CustomProperties;
             hash["HeroCombat"] = PlayerPrefs.GetString("HeroToBattle");
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
-            InitHero(selectedHero.iconName, selectedHero.speed, selectedHero.power, selectedHero.health);
+            InitHero(selectedHero.iconSource, selectedHero.speed, selectedHero.power, selectedHero.health);
         }    
         else
         {
@@ -53,9 +58,10 @@ public class MatchHeroScript : MonoBehaviourPunCallbacks, IPunObservable
     private void SetUpForOtherView()
     {
         player = view.Owner;
-        InventoryItem selectedHero = ScriptableObject.CreateInstance("InventoryItem") as InventoryItem;
-        JsonUtility.FromJsonOverwrite((string)player.CustomProperties["HeroCombat"], selectedHero);
-        InitHero(selectedHero.iconName, selectedHero.speed, selectedHero.power, selectedHero.health);
+        //InventoryItem selectedHero = ScriptableObject.CreateInstance("InventoryItem") as InventoryItem;
+        //JsonUtility.FromJsonOverwrite((string)player.CustomProperties["HeroCombat"], selectedHero);
+        Bomberman selectedHero = JsonUtility.FromJson<Bomberman>((string)player.CustomProperties["HeroCombat"]);
+        InitHero(selectedHero.iconSource, selectedHero.speed, selectedHero.power, selectedHero.health);
 
     }
     public void InitHero(string nameIcon, string _speed, string power, string _health)
@@ -127,7 +133,31 @@ public class MatchHeroScript : MonoBehaviourPunCallbacks, IPunObservable
         //{
 
         //}    
-        if(view.IsMine)
+        if (Physics2D.OverlapPoint(transform.position, LayerMask.GetMask("Explosion")) != null && isDie == false)
+        {
+            //Debug.LogError(view.name);
+            if (view.IsMine)
+            {
+
+                Debug.LogError("hihi");
+                
+                
+                view.RPC("DisplayEndGame", RpcTarget.All);
+            }
+            else
+            {
+                
+                Debug.LogError("meme");
+                //battleManager.GameWin();
+                //BattleMatchManager.instance.GameWin();
+                //float coin = float.Parse(GameData.currentCoin);
+                //coin += 0.01f;
+                //FireBaseData.instanceData.UpdateCoinData(coin.ToString());
+
+            }
+
+        }
+        if (view.IsMine)
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
@@ -190,25 +220,26 @@ public class MatchHeroScript : MonoBehaviourPunCallbacks, IPunObservable
         }
         
     }
-    private void FixedUpdate()
+    private bool isDie = false;
+    [PunRPC]
+    public void DisplayEndGame()
     {
-       if(view.IsMine == false)
+        isDie = true;
+        if (view.IsMine)
         {
-            //transform.position = Vector3.MoveTowards(transform.position, networkPos, Time.fixedDeltaTime);
-            //transform.rotation = Quaternion.RotateTowards(transform.rotation, networkRot, Time.fixedDeltaTime * 100.0f);'
-
-
-            //double timeToReachGoal = currentPacketTime - lastPacketTime;
-            //currentTime += Time.deltaTime;
-
-            //transform.position = Vector3.Lerp(positionAtLastPacket, latestPos, (float)(currentTime / timeToReachGoal));
-            //transform.rotation = Quaternion.Lerp(rotationAtLastPacket, latestRot, (float)(currentTime / timeToReachGoal));
-
-            //if(Vector3.Distance(transform.position, latestPos) > teleportIfFarDistance)
-            //{
-            //    transform.position = latestPos;
-            //}
+            battleManager.GameLost();
         }
+        else
+        {
+            battleManager.GameWin();
+        }
+    }
+    [PunRPC]
+    public void LeftRoom()
+    {
+        //PhotonNetwork.LeaveRoom();
+        //PhotonNetwork.DestroyAll();
+        PhotonNetwork.LoadLevel("WaitingRoom");
     }
     private void UpdateStateBomb()
     {
@@ -223,10 +254,6 @@ public class MatchHeroScript : MonoBehaviourPunCallbacks, IPunObservable
             numberChest++;
         }
     }
-    //private Vector3 networkPos;
-    //private Quaternion networkRot;
-    //private Rigidbody2D rigid;
-
     Vector3 latestPos;
     Quaternion latestRot;
     //Lag compensation
@@ -245,8 +272,6 @@ public class MatchHeroScript : MonoBehaviourPunCallbacks, IPunObservable
         if(stream.IsWriting)
         {
             stream.SendNext(transform.position);
-            //stream.SendNext(transform.rotation);
-            //stream.SendNext(transform.GetComponent<Rigidbody2D>().velocity);
         }    
         else
         {
@@ -258,14 +283,6 @@ public class MatchHeroScript : MonoBehaviourPunCallbacks, IPunObservable
             lastPacketTime = currentPacketTime;
             currentPacketTime = info.SentServerTime;
             positionAtLastPacket = transform.position;
-            //rotationAtLastPacket = transform.rotation;
-
-
-            //networkPos = (Vector3)stream.ReceiveNext();
-            //networkRot = (Quaternion)stream.ReceiveNext();
-            //rigid.velocity = (Vector3)stream.ReceiveNext();
-            //float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
-            //networkPos += (Vector3)(transform.GetComponent<Rigidbody2D>().velocity * lag);
         }    
     }
 

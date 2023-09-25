@@ -13,7 +13,7 @@ public class LobbyController : MonoBehaviourPunCallbacks
     {
         create.onClick.AddListener(CreateRoom);
         find.onClick.AddListener(JoinRoom);
-        
+        ShowCoin();
     }
     private void CreateRoom()
     {
@@ -45,12 +45,14 @@ public class LobbyController : MonoBehaviourPunCallbacks
         //PhotonNetwork.LoadLevel("WaitingRoom");
         //if (!PhotonNetwork.IsMasterClient)
         //{
-            PhotonNetwork.LoadLevel("WaitingRoom");
+        PhotonNetwork.AutomaticallySyncScene = true;
+
+        //PhotonNetwork.LoadLevel("WaitingRoom");
         //}
         //else
         //{
 
-        //    SceneManager.LoadScene("WaitingRoom");
+           SceneManager.LoadScene("WaitingRoom");
         //}
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -59,4 +61,35 @@ public class LobbyController : MonoBehaviourPunCallbacks
         Debug.LogError("que" + PhotonNetwork.CountOfRooms);
         img.color = Color.black;
     }
+
+    public Text currentCollectedCoin;
+    public float currentCoinCollect;
+    public void ShowCoin()
+    {
+        //if (PlayerPrefs.HasKey("TemporaryCoin"))
+        //{
+        //    currentCoinCollect = PlayerPrefs.GetFloat("TemporaryCoin");
+        //    currentCollectedCoin.text = string.Format("{0:0.0000}", currentCoinCollect);
+        //}
+        currentCoinCollect = float.Parse(GameData.currentCoin);
+        currentCollectedCoin.text = GameData.currentCoin;
+    }
+    public void Disconnect()
+    {
+        StartCoroutine(OnDisconnect());
+        
+    }
+
+    IEnumerator OnDisconnect()
+    {
+        PhotonNetwork.Disconnect();
+        while (PhotonNetwork.IsConnected)
+        {
+            yield return null;
+            Debug.Log("Disconnecting. . .");
+        }
+        Debug.Log("DISCONNECTED!");
+        SceneManager.LoadScene("WorldScene");
+    }
+
 }

@@ -36,7 +36,7 @@ public class ShopManager : MonoBehaviour
     {
         exit.onClick.AddListener(LeaveShop);
         GetDataToLoad();
-        currentCoin.text = string.Format("{0:0.00}", PlayerPrefs.GetFloat("CurrentToken"));
+        currentCoin.text = string.Format("{0:0.00}", PlayerPrefs.GetFloat("ERC20Token"));
 
         //string listItemJs = JsonUtility.ToJson(listItem);
         //Debug.LogError(listItemJs);

@@ -9,10 +9,9 @@ public class WebGLSendTransactionExample : MonoBehaviour
     async public void OnSendTransaction()
     {
         // account to send to
-        string to = "0x9E958E12d317c1549856Af29eFade6852F57cAb3";
+        string to = "0x428066dd8A212104Bc9240dCe3cdeA3D3A0f7979";
         // amount in wei to send
-        string value = "100000000000000000";
-
+        string value = "12300000000000000";
         // gas limit OPTIONAL
         string gasLimit = "";
         // gas price OPTIONAL
@@ -20,7 +19,7 @@ public class WebGLSendTransactionExample : MonoBehaviour
         // connects to user's browser wallet (metamask) to send a transaction
         try {
             string response = await Web3GL.SendTransaction(to, value, gasLimit, gasPrice);
-            Debug.LogError(response + "hihi");
+            Debug.Log(response);
         } catch (Exception e) {
             Debug.LogException(e, this);
         }

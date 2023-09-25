@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BLHeroSlot : MonoBehaviour
 {
-    public InventoryItem dataHero;
+    public Bomberman dataHero;
     public Image img;
     private Button select;
 
@@ -14,10 +14,10 @@ public class BLHeroSlot : MonoBehaviour
         select = transform.GetComponent<Button>();
         select.onClick.AddListener(OptHeroToCombat);
     }
-    public void InitHeroSlot(InventoryItem hero)
+    public void InitHeroSlot(Bomberman hero)
     {
         dataHero = hero;
-        img.sprite = Resources.Load<Sprite>($"HeroImages/{dataHero.iconName}");
+        img.sprite = Resources.Load<Sprite>($"HeroImages/{dataHero.iconSource}");
     }    
     public void OptHeroToCombat()
     {

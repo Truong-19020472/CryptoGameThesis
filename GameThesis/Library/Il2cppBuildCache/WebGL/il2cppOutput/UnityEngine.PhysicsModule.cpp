@@ -1374,6 +1374,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool CharacterController_SimpleMove_Injected_
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t CharacterController_Move_Injected_m6A2168A4CDC70CB62E4A4DCB15A74133E8C6C46D (CharacterController_tCCF68621C784CCB3391E0C66FE134F6F93DD6C2E * __this, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E * ___motion0, const RuntimeMethod* method);
 // System.Void UnityEngine.Collider::get_bounds_Injected(UnityEngine.Bounds&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider_get_bounds_Injected_m9BA8C3BC133BC241D571849C4F10F67A951CA962 (Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * __this, Bounds_t0F1F36D4F7AF49524B3C2A2259594412A3D3AE37 * ___ret0, const RuntimeMethod* method);
+// System.Void UnityEngine.Collider::Raycast_Injected(UnityEngine.Ray&,System.Single,System.Boolean&,UnityEngine.RaycastHit&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider_Raycast_Injected_m7176D9E8617D67331E20F519855B8708C63B9E9E (Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * __this, Ray_t2E9E67CC8B03EE6ED2BBF3D2C9C96DDF70E1D5E6 * ___ray0, float ___maxDistance1, bool* ___hasHit2, RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * ___ret3, const RuntimeMethod* method);
+// UnityEngine.RaycastHit UnityEngine.Collider::Raycast(UnityEngine.Ray,System.Single,System.Boolean&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89  Collider_Raycast_mEB5EDB2C67ABBA9929AE8A898660641E8C82E609 (Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * __this, Ray_t2E9E67CC8B03EE6ED2BBF3D2C9C96DDF70E1D5E6  ___ray0, float ___maxDistance1, bool* ___hasHit2, const RuntimeMethod* method);
 // System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Object_op_Inequality_mE1F187520BD83FB7D86A6D850710C4D42B864E90 (Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * ___x0, Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * ___y1, const RuntimeMethod* method);
 // UnityEngine.GameObject UnityEngine.Component::get_gameObject()
@@ -1735,6 +1739,43 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Bounds_t0F1F36D4F7AF49524B3C2A2259594412A3D3A
 		return L_0;
 	}
 }
+// UnityEngine.RaycastHit UnityEngine.Collider::Raycast(UnityEngine.Ray,System.Single,System.Boolean&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89  Collider_Raycast_mEB5EDB2C67ABBA9929AE8A898660641E8C82E609 (Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * __this, Ray_t2E9E67CC8B03EE6ED2BBF3D2C9C96DDF70E1D5E6  ___ray0, float ___maxDistance1, bool* ___hasHit2, const RuntimeMethod* method)
+{
+	RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89  V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	{
+		float L_0 = ___maxDistance1;
+		bool* L_1 = ___hasHit2;
+		Collider_Raycast_Injected_m7176D9E8617D67331E20F519855B8708C63B9E9E(__this, (Ray_t2E9E67CC8B03EE6ED2BBF3D2C9C96DDF70E1D5E6 *)(&___ray0), L_0, (bool*)L_1, (RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 *)(&V_0), /*hidden argument*/NULL);
+		RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89  L_2 = V_0;
+		return L_2;
+	}
+}
+// System.Boolean UnityEngine.Collider::Raycast(UnityEngine.Ray,UnityEngine.RaycastHit&,System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Collider_Raycast_m41CA5C3C07B92F5325CB81890BE3A611C3C70784 (Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * __this, Ray_t2E9E67CC8B03EE6ED2BBF3D2C9C96DDF70E1D5E6  ___ray0, RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * ___hitInfo1, float ___maxDistance2, const RuntimeMethod* method)
+{
+	bool V_0 = false;
+	bool V_1 = false;
+	{
+		V_0 = (bool)0;
+		RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * L_0 = ___hitInfo1;
+		Ray_t2E9E67CC8B03EE6ED2BBF3D2C9C96DDF70E1D5E6  L_1 = ___ray0;
+		float L_2 = ___maxDistance2;
+		RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89  L_3;
+		L_3 = Collider_Raycast_mEB5EDB2C67ABBA9929AE8A898660641E8C82E609(__this, L_1, L_2, (bool*)(&V_0), /*hidden argument*/NULL);
+		*(RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 *)L_0 = L_3;
+		bool L_4 = V_0;
+		V_1 = L_4;
+		goto IL_0017;
+	}
+
+IL_0017:
+	{
+		bool L_5 = V_1;
+		return L_5;
+	}
+}
 // System.Void UnityEngine.Collider::get_bounds_Injected(UnityEngine.Bounds&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider_get_bounds_Injected_m9BA8C3BC133BC241D571849C4F10F67A951CA962 (Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * __this, Bounds_t0F1F36D4F7AF49524B3C2A2259594412A3D3AE37 * ___ret0, const RuntimeMethod* method)
 {
@@ -1743,6 +1784,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider_get_bounds_Injected_m9BA8C3BC13
 	if (!_il2cpp_icall_func)
 	_il2cpp_icall_func = (Collider_get_bounds_Injected_m9BA8C3BC133BC241D571849C4F10F67A951CA962_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Collider::get_bounds_Injected(UnityEngine.Bounds&)");
 	_il2cpp_icall_func(__this, ___ret0);
+}
+// System.Void UnityEngine.Collider::Raycast_Injected(UnityEngine.Ray&,System.Single,System.Boolean&,UnityEngine.RaycastHit&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider_Raycast_Injected_m7176D9E8617D67331E20F519855B8708C63B9E9E (Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * __this, Ray_t2E9E67CC8B03EE6ED2BBF3D2C9C96DDF70E1D5E6 * ___ray0, float ___maxDistance1, bool* ___hasHit2, RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * ___ret3, const RuntimeMethod* method)
+{
+	typedef void (*Collider_Raycast_Injected_m7176D9E8617D67331E20F519855B8708C63B9E9E_ftn) (Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 *, Ray_t2E9E67CC8B03EE6ED2BBF3D2C9C96DDF70E1D5E6 *, float, bool*, RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 *);
+	static Collider_Raycast_Injected_m7176D9E8617D67331E20F519855B8708C63B9E9E_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Collider_Raycast_Injected_m7176D9E8617D67331E20F519855B8708C63B9E9E_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Collider::Raycast_Injected(UnityEngine.Ray&,System.Single,System.Boolean&,UnityEngine.RaycastHit&)");
+	_il2cpp_icall_func(__this, ___ray0, ___maxDistance1, ___hasHit2, ___ret3);
 }
 #ifdef __clang__
 #pragma clang diagnostic pop

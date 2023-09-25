@@ -16429,7 +16429,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Enums_IsEnumType_m54AADF6B29E7C99CC862EF
 	{
 		Type_t * L_0 = ___t0;
 		bool L_1;
-		L_1 = VirtFuncInvoker0< bool >::Invoke(75 /* System.Boolean System.Type::get_IsEnum() */, L_0);
+		L_1 = VirtFuncInvoker0< bool >::Invoke(76 /* System.Boolean System.Type::get_IsEnum() */, L_0);
 		return L_1;
 	}
 }

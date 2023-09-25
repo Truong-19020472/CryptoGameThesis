@@ -74,6 +74,7 @@ public class Web3GL
         } 
         else 
         {
+           
             throw new Exception(response);
         }
     }

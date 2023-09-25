@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Witch
   m_EditorClassIdentifier: 
   name: Witch
-  iconName: Alice
+  iconName: NormalWitch
   star: 3
   power: 3/6
   health: 3/4

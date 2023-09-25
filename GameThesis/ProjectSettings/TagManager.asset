@@ -7,6 +7,12 @@ TagManager:
   - Hero
   - Chest
   - Map
+  - Explosion
+  - Boost
+  - Bat
+  - FxTemporaire
+  - Ghost
+  - Ice
   layers:
   - Default
   - TransparentFX
@@ -17,7 +23,7 @@ TagManager:
   - Obstacle
   - Player
   - 
-  - 
+  - Explosion
   - 
   - 
   - 

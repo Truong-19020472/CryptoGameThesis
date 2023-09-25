@@ -1192,7 +1192,7 @@ GameObject:
   - component: {fileID: 1200173322}
   - component: {fileID: 1200173324}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: HeroManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1271,11 +1271,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabSlot: {fileID: 4114682693318772548, guid: 4f512e1e697b7a842af2a73eb7deb2bd, type: 3}
-  itemAll: []
+  totalHero:
+    heroList: []
   container: {fileID: 554987679}
   currentDescription: {fileID: 1367910074}
   currentSlot: {fileID: 0}
   rebackButton: {fileID: 395898968}
+--- !u!1001 &1253380940
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 552019319312710132, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
+      propertyPath: m_Name
+      value: GetData
+      objectReference: {fileID: 0}
+    - target: {fileID: 552019319312710134, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 552019319312710134, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552019319312710134, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552019319312710134, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552019319312710134, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 552019319312710134, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552019319312710134, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552019319312710134, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552019319312710134, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552019319312710134, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552019319312710134, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b6001acdc5f196428b589c2c6a8b1aa, type: 3}
 --- !u!1 &1277562476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,6 +1591,8 @@ MonoBehaviour:
   power: {fileID: 1041168977}
   health: {fileID: 2044041866}
   activeButton: {fileID: 16574119}
+  currentIdHero: 0
+  currentSlot: {fileID: 0}
 --- !u!1 &1387618042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,7 +1926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1629106054
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1986,7 +2046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 98cb48315b7690044891a1f38bf75320, type: 3}
+  m_Sprite: {fileID: -205270267638800340, guid: 98cb48315b7690044891a1f38bf75320, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

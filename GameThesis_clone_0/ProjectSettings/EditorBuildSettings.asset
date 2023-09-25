@@ -9,24 +9,48 @@ EditorBuildSettings:
     path: Assets/1.GameScenes/WorldScene/LoginScene.unity
     guid: 7c6fce5a7860f584f9aa4df0eef43de5
   - enabled: 1
+    path: Assets/1.GameScenes/WorldScene/LoadScene.unity
+    guid: 2bf3442916e450541890dbf8f8559817
+  - enabled: 0
+    path: Assets/1.GameScenes/WorldScene/FireBaseTest.unity
+    guid: 758f2a60ed079674c98a721fb89ee2d7
+  - enabled: 1
     path: Assets/1.GameScenes/WorldScene/WorldScene.unity
     guid: 3b8be86a74e3ef6419848e9a39f15c94
-  - enabled: 0
+  - enabled: 1
+    path: Assets/1.GameScenes/WorldScene/Treasure.unity
+    guid: 59a2aaaf5bf7f3d428a633cc16d404b3
+  - enabled: 1
     path: Assets/1.GameScenes/WorldScene/HeroesManager.unity
     guid: 5b3216529f1c0fd45aefdf4441b503f3
-  - enabled: 0
+  - enabled: 1
     path: Assets/1.GameScenes/TreasureHuntMode/TreasureHunt.unity
     guid: a5c8a8a8a73854642ba082666e60f33b
-  - enabled: 0
+  - enabled: 1
     path: Assets/1.GameScenes/BattleMode/RankingMatch.unity
     guid: 570f8493da81361448fef13d494e199c
-  - enabled: 0
+  - enabled: 1
     path: Assets/1.GameScenes/BattleMode/WaitingRoom.unity
     guid: d642109ed299ecf47a92159669a4547d
-  - enabled: 0
+  - enabled: 1
     path: Assets/1.GameScenes/BattleMode/FightPlace.unity
     guid: fd973e42219ba614b8abca9dddb195bc
   - enabled: 1
     path: Assets/1.GameScenes/Shop/Shop.unity
     guid: f9f345cac410fb143883b2a969ab5236
+  - enabled: 1
+    path: Assets/1.GameScenes/TreasureHuntMode/MapSelection.unity
+    guid: 31bedc80a894f3548b8b7e310381eec1
+  - enabled: 1
+    path: Assets/1.GameScenes/Inventory/Inventory.unity
+    guid: 768f05223a108c74bad810eef9ce3634
+  - enabled: 1
+    path: Assets/1.GameScenes/AdventureMode/AdvantureMap.unity
+    guid: b2f6e66b7e4fdd04cacf5cfb12b819e7
+  - enabled: 1
+    path: Assets/1.GameScenes/AdventureMode/Advanture.unity
+    guid: 3847399364aa3a844a8f3d10978e87f9
+  - enabled: 1
+    path: Assets/1.GameScenes/WorldScene/MarketPlace.unity
+    guid: 5c4de98f3c9d05e448aabef11ce17bfe
   m_configObjects: {}

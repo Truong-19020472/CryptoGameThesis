@@ -22842,12 +22842,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SupportClass_WriteStackTrace_mAF579C6CC9
 		Exception_t * L_3 = ___throwable0;
 		String_t* L_4;
 		L_4 = VirtFuncInvoker0< String_t* >::Invoke(3 /* System.String System.Object::ToString() */, L_3);
-		VirtActionInvoker1< String_t* >::Invoke(19 /* System.Void System.IO.TextWriter::WriteLine(System.String) */, L_2, L_4);
+		VirtActionInvoker1< String_t* >::Invoke(20 /* System.Void System.IO.TextWriter::WriteLine(System.String) */, L_2, L_4);
 		TextWriter_t4CB195237F3B6CADD850FBC3604A049C7C564643 * L_5 = ___stream1;
 		Exception_t * L_6 = ___throwable0;
 		String_t* L_7;
 		L_7 = VirtFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Exception::get_StackTrace() */, L_6);
-		VirtActionInvoker1< String_t* >::Invoke(19 /* System.Void System.IO.TextWriter::WriteLine(System.String) */, L_5, L_7);
+		VirtActionInvoker1< String_t* >::Invoke(20 /* System.Void System.IO.TextWriter::WriteLine(System.String) */, L_5, L_7);
 		TextWriter_t4CB195237F3B6CADD850FBC3604A049C7C564643 * L_8 = ___stream1;
 		VirtActionInvoker0::Invoke(10 /* System.Void System.IO.TextWriter::Flush() */, L_8);
 		goto IL_0048;

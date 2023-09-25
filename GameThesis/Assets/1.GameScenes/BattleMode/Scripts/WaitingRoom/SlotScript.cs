@@ -16,7 +16,7 @@ public class SlotScript : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallbac
 
     public ExitGames.Client.Photon.Hashtable propertiesPlayer = new ExitGames.Client.Photon.Hashtable();
     Player player;
-    InventoryItem selectedHero;
+    Bomberman selectedHero;
     //private bool isReady = false;
     // Start is called before the first frame update
     void Start()
@@ -30,8 +30,9 @@ public class SlotScript : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallbac
         player = PhotonNetwork.LocalPlayer;
         if(PlayerPrefs.HasKey("HeroToBattle"))
         {
-            selectedHero = ScriptableObject.CreateInstance("InventoryItem") as InventoryItem;
-            JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString("HeroToBattle"), selectedHero);
+            //selectedHero = ScriptableObject.CreateInstance("InventoryItem") as InventoryItem;
+            selectedHero = JsonUtility.FromJson<Bomberman>(PlayerPrefs.GetString("HeroToBattle"));
+            //JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString("HeroToBattle"), selectedHero);
         }
         
         if(view.IsMine)
@@ -41,9 +42,9 @@ public class SlotScript : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallbac
         else
         {
             Invoke("InitInfoSkin", 0.5f);
-        }    
-        
-        
+        }
+
+        view.RPC("SetUpParent", RpcTarget.All);
 
     }
     //public void SetUpSlot(Texture2D txtr, string _name)
@@ -61,10 +62,10 @@ public class SlotScript : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallbac
         
         if (view.IsMine)
         {
-            propertiesPlayer.Add("nameSprite", selectedHero.iconName);
+            propertiesPlayer.Add("nameSprite", selectedHero.iconSource);
             propertiesPlayer.Add("nameUser", player.NickName);
             PhotonNetwork.LocalPlayer.SetCustomProperties(propertiesPlayer);
-            img.sprite = Resources.Load<Sprite>($"HeroImages/{selectedHero.iconName}");
+            img.sprite = Resources.Load<Sprite>($"HeroImages/{selectedHero.iconSource}");
             textName.text = player.NickName;
             
         }    
@@ -79,7 +80,6 @@ public class SlotScript : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallbac
 
     public void OnPhotonInstantiate(PhotonMessageInfo info)
     {
-        Debug.LogError("gg");
         view.RPC("SetUpParent", RpcTarget.All);
     }
     [PunRPC]
@@ -92,7 +92,7 @@ public class SlotScript : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallbac
         //transform.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
         //if (view.IsMine)
         //{
-            Debug.LogError("haha");
+           // Debug.LogError("haha");
             if(PhotonNetwork.IsMasterClient)//nếu ismine mà ko phải master thì sao :))
             {
                 transform.GetComponent<RectTransform>().anchoredPosition = WaitingRoomManager.instance.posList[0];
@@ -101,7 +101,7 @@ public class SlotScript : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallbac
         //}
         else
         {
-            Debug.LogError("kk");
+            //Debug.LogError("kk");
             transform.GetComponent<RectTransform>().anchoredPosition = WaitingRoomManager.instance.posList[1];
         }    
         
@@ -111,14 +111,15 @@ public class SlotScript : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallbac
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
         base.OnMasterClientSwitched(newMasterClient);
-        if(newMasterClient == PhotonNetwork.LocalPlayer)
-        {
-            transform.GetComponent<RectTransform>().anchoredPosition = WaitingRoomManager.instance.posList[/*PhotonNetwork.LocalPlayer.ActorNumber*/0];
-        }    
-        else
-        {
-            transform.GetComponent<RectTransform>().anchoredPosition = WaitingRoomManager.instance.posList[1/* - PhotonNetwork.LocalPlayer.ActorNumber*/];
-        }    
+        view.RPC("SetUpParent", RpcTarget.All);
+        //if(newMasterClient == PhotonNetwork.LocalPlayer)
+        //{
+        //    transform.GetComponent<RectTransform>().anchoredPosition = WaitingRoomManager.instance.posList[/*PhotonNetwork.LocalPlayer.ActorNumber*/0];
+        //}    
+        //else
+        //{
+        //    transform.GetComponent<RectTransform>().anchoredPosition = WaitingRoomManager.instance.posList[1/* - PhotonNetwork.LocalPlayer.ActorNumber*/];
+        //}    
     }
     //[PunRPC]
     //public void ChangeStateReady()
